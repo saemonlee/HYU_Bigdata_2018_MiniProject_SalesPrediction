@@ -1,0 +1,89 @@
+PUT sales_prediction
+{
+  "settings": {
+    "number_of_shards": "5",
+    "number_of_replicas": "1"
+  },
+  "mappings": {
+    "sales_train": {
+      "properties": {
+        "date": {
+          "type": "date",
+          "format": "yyyy-MM-dd"
+        },
+        "date_block_num": {
+          "type": "integer"
+        },
+        "month": {
+          "type": "integer",
+          "fields": {
+            "raw": {
+              "type" : "date",
+              "format": "MM"
+            }
+          }
+        },
+        "region_name": {
+          "type": "keyword"
+        },
+        "region_id": {
+          "type": "integer"
+        },
+        "shop_name": {
+          "type": "text",
+          "fields": {
+            "raw": {
+              "type": "keyword"
+            }
+          }
+        },
+        "shop_id": {
+          "type": "integer"
+        },
+        "group_name": {
+          "type": "text",
+          "fields": {
+            "raw": {
+              "type": "keyword"
+            }
+          }
+        },
+        "group_id": {
+          "type": "integer"
+        },
+        "type_name": {
+          "type": "text"
+        },
+        "type_id": {
+          "type": "integer"
+        },
+        "sub_name": {
+          "type": "text"
+        },
+        "sub_id": {
+          "type": "integer"
+        },
+        "item_category_name": {
+          "type": "text",
+          "fields": {
+            "raw": {
+              "type": "keyword"
+            }
+          }
+        },
+        "item_category_id": {
+          "type": "integer"
+        },
+        "item_id": {
+          "type": "integer"
+        },
+        "item_cnt_day": {
+          "type": "double"
+        },
+        "item_price": {
+          "type": "double"
+        }
+      }
+    }
+  }
+}
